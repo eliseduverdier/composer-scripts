@@ -1,0 +1,29 @@
+{
+    "name": "eliseduverdier/composer-template",
+    "version": "4.0",
+    "type": "project",
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": ""
+        }
+    },
+    "scripts": {
+        "install": "cp .env.dist .env && composer install",
+
+        "all": "composer run tests && composer run quality",
+
+        "tests": "composer run unit-tests && composer run functional-tests",
+        "quality": "composer run code-style && composer run code-analysis",
+
+        "unit-tests": "vendor/php/phpunit tests/",
+        "functional-tests": "vendor/bin/behat",
+        "code-style": "vendor/bin/phpcs src/",
+        "code-analysis": "vendor/bin/psalm"
+    },
+    "license": "The Unlicence"
+}
